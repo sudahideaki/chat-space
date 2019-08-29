@@ -3,12 +3,12 @@
 # usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|name|string|null: false,index: true|
 |email|string|null: false|
 
 ### Association
 - has_many :groups_users
-- has_many :groups
+- has_many :groups, through: :groups_users
 - has_many :messages
 
 # groupsテーブル
@@ -19,7 +19,7 @@
 |group_id|integer|null: false, foreign_key: true|
 
 ### Association
-- has_many :users
+- has_many :users, through: :groups_users
 - has_many :messages
 has_many :groups_users
 
@@ -27,8 +27,8 @@ has_many :groups_users
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false|
+|group_id|references|null: false|
 
 ### Association
 - belongs_to :group
@@ -38,9 +38,10 @@ has_many :groups_users
 
 |Column|Type|Options|
 |------|----|-------|
-|text|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|text|text||
+|image|text||
+|user_id|references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
