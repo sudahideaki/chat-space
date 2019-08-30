@@ -15,8 +15,9 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|name|string|null: false,index: true|
+|user_id|integer|null: false|
+|group_id|integer|null: false|
 
 ### Association
 - has_many :users, through: :groups_users
