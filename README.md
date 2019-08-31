@@ -16,8 +16,6 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false,index: true|
-|user_id|integer|null: false|
-|group_id|integer|null: false|
 
 ### Association
 - has_many :users, through: :groups_users
@@ -28,6 +26,8 @@ has_many :groups_users
 
 |Column|Type|Options|
 |------|----|-------|
+|user_id|references|null: false|
+|group_id|references|null: false|
 
 ### Association
 - belongs_to :group
