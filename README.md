@@ -28,8 +28,6 @@ has_many :groups_users
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false|
-|group_id|references|null: false|
 
 ### Association
 - belongs_to :group
