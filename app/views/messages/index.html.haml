@@ -1,0 +1,41 @@
+.wrapper
+  .chat-side
+    .side-header
+      .side-header__box
+        .side-header__box__user-name
+          須田 英明
+        %ul.side-header__box__menu__new-group
+          = fa_icon 'edit'
+        %ul.side-header__box__menu__new-group
+          = fa_icon 'cog'
+    .groups
+      .group
+        .group__group-name
+          Rails勉強会
+        .group__latest-message
+          こんにちは
+
+  .chat-main
+    .main-header
+      .main-header__left-box
+        %h2.main-header__left-box__current-group
+          Rails 勉強会
+        %ul.main-header__left-box__member-list
+          Member
+          %li.main-header__left-box__member-list__member
+            サンプルユーザー１
+          %li.main-header__left-box__member-list__member
+            サンプルユーザー2
+      .main-header__edit-btn
+        Edit
+    .messages
+    
+    .form
+      %form.new_message
+        .input-box
+          %input{ placeholder:"type a message" , class: "input-box__text"}
+          %label.input-box__image
+            =fa_icon 'image'
+            %input{type: 'file', class:'input-box__image__file'}
+        %input{type:'submit',value: 'send',class: 'submit-btn'}
+  
