@@ -1,13 +1,17 @@
 .wrapper
   .chat-side
     .side-header
+      = current_user.name
       .side-header__box
         .side-header__box__user-name
-          須田 英明
+        
         %ul.side-header__box__menu__new-group
-          = fa_icon 'edit'
+          = link_to new_group_path do
+            = fa_icon 'edit'
         %ul.side-header__box__menu__new-group
-          = fa_icon 'cog'
+          = link_to edit_user_path(current_user) do
+            = fa_icon 'cog'
+            
     .groups
       .group
         .group__group-name
