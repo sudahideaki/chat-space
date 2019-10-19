@@ -1,13 +1,17 @@
 .wrapper
   .chat-side
     .side-header
+      = current_user.name
       .side-header__box
         .side-header__box__user-name
-          須田 英明
+        
         %ul.side-header__box__menu__new-group
-          = fa_icon 'edit'
+          = link_to new_group_path do
+            = fa_icon 'edit'
         %ul.side-header__box__menu__new-group
-          = fa_icon 'cog'
+          = link_to edit_user_path(current_user) do
+            = fa_icon 'cog'
+            
     .groups
       .group
         .group__group-name
@@ -29,13 +33,32 @@
       .main-header__edit-btn
         Edit
     .messages
+      = render @messages
+      .message
+        .upper-message
+          .upper-message__user-name
+            メンバー
+          .upper-message__date
+            2017/04/04
+        .lower-meesage
+          .lower-message__content
+            メッセージ
+      .message
+        .upper-message
+          .upper-message__user-name
+            メンバー
+          .upper-message__date
+            2017/04/04
+        .lower-meesage
+          .lower-message__content
+            メッセージ
     
     .form
-      %form.new_message
+      = form_for [@group, @message] do |f|
         .input-box
-          %input{ placeholder:"type a message" , class: "input-box__text"}
-          %label.input-box__image
-            =fa_icon 'image'
-            %input{type: 'file', class:'input-box__image__file'}
-        %input{type:'submit',value: 'send',class: 'submit-btn'}
-  
+          = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+    
+          = f.label :image, class: 'input-box__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'input-box__image__file'
+        = f.submit 'Send', class: 'submit-btn'
