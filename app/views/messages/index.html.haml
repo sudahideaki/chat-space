@@ -14,24 +14,36 @@
             
     .groups
       .group
-        .group__group-name
-          Rails勉強会
-        .group__latest-message
-          こんにちは
+        .group__name
+          グループ名
+        .group__message
+          新着メッセージ
+      .group
+        .group__name
+          グループ名
+        .group__message
+          新着メッセージ
+      .group
+        .group__name
+          グループ名
+        .group__message
+          新着メッセージ
 
   .chat-main
     .main-header
       .main-header__left-box
         %h2.main-header__left-box__current-group
-          Rails 勉強会
+          = @group.name
         %ul.main-header__left-box__member-list
-          Member
-          %li.main-header__left-box__member-list__member
-            サンプルユーザー１
-          %li.main-header__left-box__member-list__member
-            サンプルユーザー2
+          Member:
+          - @group.users.each do |user|
+            %span
+              = user.name
+          
+          
       .main-header__edit-btn
-        Edit
+        = link_to "Edit", edit_group_path(@group), class: "right-header"
+
     .messages
       = render @messages
       .message
