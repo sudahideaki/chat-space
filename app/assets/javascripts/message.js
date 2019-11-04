@@ -7,7 +7,7 @@ $(function(){
                     ${message.user_name}
                     </div>
                     <div class="upper-message__date">
-                    ${message.created_at}
+                    ${message.date}
                     </div>
                   </div>
                   <div class="lower-message">
@@ -24,6 +24,7 @@ $(function(){
     e.preventDefault();
     var message = new FormData(this);
     var url = $(this).attr('action')
+    
     $.ajax({  
       url: url,
       type: 'POST',
@@ -35,7 +36,7 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.messages').append(html);
-      $( ".submit-btn").prop( "disabled", false );
+      $(".submit-btn").prop( "disabled", false );
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
       $("form")[0].reset();
       $('.hidden').val('');
