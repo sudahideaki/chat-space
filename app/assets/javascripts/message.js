@@ -1,7 +1,7 @@
 $(function(){
   function buildHTML(message) {
-    var imagehtml = message.image == null ? "" : `<img src="${message.image}" class="lower-message__image">`
-    var html = `<div class=message>
+    var imagehtml = message.image == null ?  `<img class= "lower-message__image" src=${message.image} >` : "";
+    var html = `<div class="message" data-message-id="${message.id}">
                   <div class="upper-message">
                     <div class="upper-message__user-name">
                     ${message.user_name}
@@ -14,8 +14,8 @@ $(function(){
                     <p class="lower-message__content">
                     ${message.content}
                     </p>
-                    ${imagehtml}
                   </div>
+                  ${imagehtml}
                 </div> `
      return html;
   }
@@ -45,4 +45,39 @@ $(function(){
       alert('エラーが発生したためメッセージは送信できませんでした。');
     })
   })
+  
+  var reloadMessages = function() {
+
+    if (window.location.href.match(/\/groups\/\d+\/messages/)){
+    
+    last_message_id = $('.message:last').data("message-id");
+    
+    $.ajax({
+      //ルーティングで設定した通り/groups/id番号/api/messagesとなるよう文字列を書く
+      url: 'api/messages',
+      //ルーティングで設定した通りhttpメソッドをgetに指定
+      type: 'get',
+      dataType: 'json',
+      //dataオプションでリクエストに値を含める
+      data: {id: last_message_id}
+    })
+
+    .done(function(messages) {
+      var insertHTML = '';
+      messages.forEach(function (message) {
+      var insertHTML = buildHTML(message);
+      $('.messages').append(insertHTML);
+    })
+    $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+    })
+    .fail(function() {
+      alert('自動更新に失敗しました');
+    });
+  
+  
+
+  
+  };
+}
+setInterval(reloadMessages, 5000);
 });

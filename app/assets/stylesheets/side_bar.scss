@@ -1,7 +1,10 @@
 .chat-side {
   width:300px;
-  color:white;
+  color: #FFFFFF;
   float:left;
+  a:visited{
+    color:inherit;
+  }
   .side-header {
     background-color: #253141;
     height: 100px;
@@ -13,6 +16,9 @@
       justify-content: space-between;
       width: 100%;
       font-weight: bold;
+      &__menu{
+        display: flex;
+      }
       &__menu__new-group {
         display: flex;
       }
