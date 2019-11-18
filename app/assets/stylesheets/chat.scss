@@ -1,6 +1,7 @@
 .chat-main {
   width:calc(100vw - 300px);
   float:left;
+  
   .main-header{
     height:100px;
     padding:0 40px;
@@ -13,6 +14,7 @@
       
     }
     &__edit-btn{
+      a:visited { color:#38aef0; text-decoration:none }
       height: 40px;
       display: inline-block;
       line-height: 40px;
@@ -23,6 +25,7 @@
       right: 40px;
       font-size: 14px;
       color: #38aef0;
+      
     }
   }
     .messages{
