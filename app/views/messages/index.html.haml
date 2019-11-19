@@ -5,9 +5,10 @@
         .side-header__box__user-name
           = current_user.name
         .side-header__box__menu
-          %ul.side-header__box__menu__new-group
+          .side-header__box__menu__new-group
             = link_to new_group_path do
               = fa_icon 'edit'
+          .side-header__box__menu__edit-user
             = link_to edit_user_path(current_user) do
               = fa_icon 'cog'
             
@@ -24,9 +25,9 @@
   .chat-main
     .main-header
       .main-header__left-box
-        %h2.main-header__left-box__current-group
+        .main-header__left-box__current-group
           = @group.name
-        %ul.main-header__left-box__member-list
+        .main-header__left-box__member-list
           Member:
           - @group.users.each do |user|
             %span

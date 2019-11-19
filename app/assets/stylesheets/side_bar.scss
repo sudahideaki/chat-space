@@ -2,8 +2,8 @@
   width:300px;
   color: #FFFFFF;
   float:left;
-  a:visited{
-    color:inherit;
+  a, a:visited {
+    color : #FFFFFF;
   }
   .side-header {
     background-color: #253141;
@@ -12,15 +12,17 @@
     align-items:center;
     padding:0 20px;
     .side-header__box{
+      color: #FFFFFF;
       display:flex;
       justify-content: space-between;
       width: 100%;
       font-weight: bold;
-      &__menu{
+      &__user-name{
         display: flex;
       }
-      &__menu__new-group {
+      &__menu {
         display: flex;
+        color: #FFFFFF;
       }
     }
   }
@@ -28,6 +30,9 @@
     background-color: #2f3e51;
     height: calc(100vh - 100px);
     padding: 0 20px;
+    a, a:visited {
+      color : #FFFFFF;
+    }
     .group {
       box-sizing: border-box;
       padding: 20px 0 40px;
