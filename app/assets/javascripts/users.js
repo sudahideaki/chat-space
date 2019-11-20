@@ -12,7 +12,7 @@ $(document).on('turbolinks:load', function() {
   function addNoUser() {
     let html = `
       <div class="chat-group-user clearfix">
-        <p class="chat-group-user__name">一致するユーザーが見つかりません</p>
+        <p class="chat-group-user__name">一致するメンバーが見つかりません</p>
       </div>
     `;
     $("#user-search-result").append(html);
