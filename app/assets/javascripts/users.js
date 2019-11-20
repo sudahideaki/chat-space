@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load', function() {
   function addUser(user) {
     let html = `
       <div class="chat-group-user clearfix">
@@ -12,7 +12,7 @@ $(function() {
   function addNoUser() {
     let html = `
       <div class="chat-group-user clearfix">
-        <p class="chat-group-user__name">ユーザーが見つかりません</p>
+        <p class="chat-group-user__name">一致するユーザーが見つかりません</p>
       </div>
     `;
     $("#user-search-result").append(html);
@@ -31,6 +31,7 @@ $(function() {
   }
   $("#user-search-field").on("keyup", function() {
     let input = $("#user-search-field").val();
+    console.log(input)
     $.ajax({
       type: "GET",
       url: "/users",
