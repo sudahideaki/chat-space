@@ -24,25 +24,31 @@
         display: flex;
         color: #FFFFFF;
       }
+      .side-header__box__menu__edit-user{
+        margin-left: 0.3rem;
+      }
     }
   }
   .groups {
     background-color: #2f3e51;
     height: calc(100vh - 100px);
-    padding: 0 20px;
+    padding: 20px 20px 0;
     a, a:visited {
       color : #FFFFFF;
+      text-decoration:none;
     }
+    
     .group {
       box-sizing: border-box;
-      padding: 20px 0 40px;
+      margin-bottom: 40px;
       &__name {
-        
+        margin-bottom: 5px;
+        font-size: 15px;
       }
       &__message {
-       
-        margin-top: 5px;
+        font-size: 11px;
       }
     }
   }
 }
+
