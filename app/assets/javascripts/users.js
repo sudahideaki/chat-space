@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(function() {
   function addUser(user) {
     let html = `
       <div class="chat-group-user clearfix">
@@ -59,11 +59,13 @@ $(document).on('turbolinks:load', function() {
     console.log
     const userName = $(this).attr("data-user-name");
     const userId = $(this).attr("data-user-id");
+    addDeleteUser(userName, userId);
+    console.log(userName)
+    addMember(userId);
+    console.log(userId)
     $(this)
       .parent()
       .remove();
-    addDeleteUser(userName, userId);
-    addMember(userId);
   });
   $(document).on("click", ".chat-group-user__btn--remove", function() {
     $(this)
